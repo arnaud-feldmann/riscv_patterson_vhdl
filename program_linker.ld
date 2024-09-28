@@ -1,13 +1,15 @@
 SECTIONS
 {
-    . = 0;
-    .text (READONLY) : {
+    .text : AT(0x0)
+    {
         *(.text)
-        . = 128*4;
+        . = 0x200;
     }
-    .data (READONLY) : {
+
+    .data : AT(0x200) 
+    {
         *(.data)
-        . = 128*4;
+        . = 0x200;
     }
 }
 

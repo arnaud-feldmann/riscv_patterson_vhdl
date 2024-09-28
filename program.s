@@ -20,7 +20,7 @@ or x11, x10, x8 # x11 := x10 | x8 = 61 | 6 = 63
 sub x12, x11, x9 # x12 := x11-x9 = 63-4 = 59
 add x12, x12, x12 # x12 := x12+x12 = 59+59 = 118
 sub x10, x12, x10 # x10 := x12-x10 = 118-61 = 57
-sw x10, 1020(x0) # (1020)* := x10 = 61 (1020 est l'adresse d'entrée/sortie)
+sw x10, 1020(x0) # (1020)* := x10 = 57 (1020 est l'adresse d'entrée/sortie)
 end:
 beq x0, x0, end
 

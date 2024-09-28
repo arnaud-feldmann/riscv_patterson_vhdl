@@ -1,0 +1,41 @@
+name: Tests VHDL
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Installer GHDL
+      run: sudo apt-get update && sudo apt-get install -y ghdl
+
+    - name: Analyser and compiler le VHDL
+      run: make
+
+    - name: Lancer les tests
+      run: make test
+      
+    - name: Générer les ghw et les vcd
+      run: make ghw && make vcd
+      
+    - name: Uploader les ghw
+      uses: actions/upload-artifact@v4
+      with:
+        name: ghw
+        path: |
+          *.ghw
+
+    - name: Uploader les vcd
+      uses: actions/upload-artifact@v4
+      with:
+        name: vcd
+        path: |
+          *.vcd

@@ -1,0 +1,17 @@
+*~
+*.bak
+/db
+/incremental_db
+/simulation
+/output_files
+*.o
+*.rpt
+qar_info.json
+riscv.qpf
+riscv.qsf
+riscv.qws
+program.hex
+program.txt
+riscv_assignment_defaults.qdf
+ram_init.vhd
+

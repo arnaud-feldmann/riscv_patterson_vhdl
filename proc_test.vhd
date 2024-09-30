@@ -37,6 +37,10 @@ begin
             wait until h = '1';
         end loop;
         assert mot_entree_sortie = (31 downto 6 => '0') & "111001" report "Le résultat du programme est 57." severity error;
+        for i in 300 downto 0 loop
+            wait until h = '1';
+        end loop;
+        assert mot_entree_sortie = (31 downto 6 => '0') & "111001" report "Le programme finit par une boucle infinie donc doit rester sur 57." severity error;
         finish;
     end process;
 
